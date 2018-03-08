@@ -1,7 +1,7 @@
 import pandas as pd
-df1= pd.read_csv("NCAATourneyCompactResults.csv")
-df2= pd.read_csv("RegularSeasonCompactResults.csv")
-df3 = pd.read_csv("NCAATourneySeeds.csv")
+df1= pd.read_csv("./input/NCAATourneyCompactResults.csv")
+df2= pd.read_csv("./input/RegularSeasonCompactResults.csv")
+df3 = pd.read_csv("./input/NCAATourneySeeds.csv")
 df1["WTseed"]=""
 df1["LTseed"]=""
 
@@ -43,7 +43,7 @@ train_2015 = datamake(2013,2014,2015,df1,df3)
 train_2016 = datamake(2014,2015,206,df1,df3)
 train_2017 =datamake(2015,2016,2017,df1,df3)
 
-train_2014.to_csv("train_2014.csv")
-train_2015.to_csv("train_2015.cvv")
-train_2016.to_csv("train_2016.csv")
-train_2017.to_csv("train_2017.csv")
+train_2014.to_csv("./output/train_2014.csv")
+train_2015.to_csv("./output/train_2015.cvv")
+train_2016.to_csv("./output/train_2016.csv")
+train_2017.to_csv("./output/train_2017.csv")
