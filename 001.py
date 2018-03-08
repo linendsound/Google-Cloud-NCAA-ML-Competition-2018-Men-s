@@ -11,11 +11,11 @@ def seed_in(df1,df2):
     for i in range(len(df1)):
         for j in range(len(df2)):
             if df1["WTeamID"][i] == df2["TeamID"][j]:
-                df1["WTseed"].loc[i]=df2["Seed"][j][1:3]
+                df1["WTseed"].loc[i]=df2["Seed"][j][1:]
     for i in range(len(df1)):
         for j in range(len(df2)):
             if df1["LTeamID"][i] == df2["TeamID"][j]:
-                df1["LTseed"].loc[i]=df2["Seed"][j][1:3]
+                df1["LTseed"].loc[i]=df2["Seed"][j][1:]
     return df1
 
 
@@ -37,8 +37,13 @@ def datamake(year1,year2,year3,df1,df3):
     data = pd.concat([Regular_year3,Whole_year1,Whole_year2],ignore_index=True)
     return data
 
-train_2013 = datamake(2011,2012,2013,df1,df3)
 
+train_2014 = datamake(2012,2013,2014,df1,df3)
+train_2015 = datamake(2013,2014,2015,df1,df3)
+train_2016 = datamake(2014,2015,206,df1,df3)
+train_2017 =datamake(2015,2016,2017,df1,df3)
 
-
-print(train_2013)
+train_2014.to_csv("train_2014.csv")
+train_2015.to_csv("train_2015.cvv")
+train_2016.to_csv("train_2016.csv")
+train_2017.to_csv("train_2017.csv")
