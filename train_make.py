@@ -5,6 +5,9 @@ df_tour= pd.read_csv("./input/NCAATourneyCompactResults.csv")
 df_seed = pd.read_csv("./input/NCAATourneySeeds_SampleTourney2018.csv")
 df_reg["WTseed"]=""
 df_reg["LTseed"]=""
+df_reg["Wsea"]=""
+df_reg["Lsea"]=""
+
 
 def seed_in(df1_,df2_):
     df1_=df1_.reset_index()
@@ -13,10 +16,12 @@ def seed_in(df1_,df2_):
         for j in range(len(df2_)):
             if df1_["WTeamID"][i] == df2_["TeamID"][j]:
                 df1_["WTseed"].loc[i]=df2_["Seed"][j][1:3]
+                df1_["Wsea"].loc[i] = df2_["Seed"][j][0]
     for i in range(len(df1_)):
         for j in range(len(df2_)):
             if df1_["LTeamID"][i] == df2_["TeamID"][j]:
                 df1_["LTseed"].loc[i]=df2_["Seed"][j][1:3]
+                df1_["Lsea"].loc[i] = df2_["Seed"][j][0]
     return df1_
 
 
